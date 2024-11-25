@@ -7,30 +7,6 @@ public class MusicPlayer extends JFrame {
     private JList<String> playlistDisplay;
     private JLabel nowPlayingLabel;
 
-    private void displayCurrentlyPlaying() {
-        if (current == null) {
-            JOptionPane.showMessageDialog(this, "No song is currently playing.", "Currently Playing", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-
-        String[] columnNames = {"Title", "Artist", "Duration"};
-        String formattedDuration = formatDuration(current.duration);
-        Object[][] data = {{current.title, current.artist, formattedDuration}};
-
-        JTable table = new JTable(data, columnNames);
-        table.setFillsViewportHeight(true);
-        table.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        table.setRowHeight(25);
-        table.getTableHeader().setFont(new Font("Times New Roman", Font.BOLD, 14));
-        table.getTableHeader().setBackground(new Color(60, 60, 60));
-        table.getTableHeader().setForeground(Color.WHITE);
-        table.setBackground(new Color(40, 40, 40));
-        table.setForeground(Color.WHITE);
-
-        JScrollPane scrollPane = new JScrollPane(table);
-        JOptionPane.showMessageDialog(this, scrollPane, "Currently Playing", JOptionPane.INFORMATION_MESSAGE);
-    }
-
     private class Song {
         String title;
         String artist;
